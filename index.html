@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+<style>
+    body{
+        font-family: 'Baloo Bhai 2', cursive;
+        margin: 0px;
+        padding: 0px;
+        background-color:rgb(31, 30, 30);
+        background-repeat: no-repeat;
+        background-size:cover;
+        color: white;
+    }
+    .main{
+        font-family: 'Dancing Script', cursive;
+        margin-left: 40px;
+    }
+    .container{
+        margin: 20px;
+        padding-left: 50px;
+    }
+    .wx{
+        font-family:cursive;
+        background-color:whitesmoke;
+        color:rgb(10, 10, 10);
+        font-size: 20px;
+        display: inline;
+        padding:30px;
+        margin:20px;
+        width: 80%;
+    }
+    .box{
+        padding:15px;
+        border-radius: 12px;
+        align-items: center;
+        margin-top: 20px;
+        width: 150px;
+        background-color: mistyrose;
+        font-family:serif;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    #box{
+        background-image:url(str.jpg);
+        display:inline-flexbox;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-color:white ;
+        border-width: thick;
+    }
+    h4{
+        display: inline;
+        font-weight: lighter;
+    }
+    .box:hover{
+        background-color:powderblue;
+        cursor: pointer;
+        color: black;
+        box-sizing: border-box;
+    }
+    h3{
+        color:aquamarine;
+        font-style: italic;
+        text-decoration-line: underline;
+    }
+    p{
+        color:thistle;
+        text-align: center;
+        font-family: 'Architects Daughter', cursive;
+        font-size: large;
+    }
+    .a{
+        align-items: center;
+        color: teal;
+    }
+</style>
+<body>
+    <p id="box"></p>
+    <h2 class="main">Welcome to String Formatter !! The best online Formatting Website....</h2>
+    <div class="container">
+        <form action="/action_page.php">
+            <textarea class="wx" id="fname" rows="4" cols="100"></textarea>
+            <br>
+            <p>
+                Word Count:
+                <span id="show" class="a">0</span>
+            </p>
+            <h3>Select the properties:-</h3>
+            <br>
+            Select any one:-
+            <br>
+            <input type="radio" name="drone" onclick="if(this.checked){myFunction()}"><h4>Uppercase</h4>
+            <br>
+            <input type="radio" name="drone" onclick="if(this.checked){MyFunction()}"><h4>Lowercase</h4>
+            <br>
+            Select any one:-
+            <br>
+            <input type="radio" name="drone"  onclick="if(this.checked){myfunc()}"><h4>Align Items in center</h4>
+            <br>
+            <input type="radio" name="drone"  onclick="if(this.checked){myfuc()}"><h4>Align Items in left</h4>
+            <br>
+            <input type="radio" name="drone"  onclick="if(this.checked){myfun()}"><h4>Align Items in right</h4>
+            <br>
+            <br>
+            <input type="checkbox"  onclick="if(this.checked){myfunction()}"><h4>Capitalise</h4>
+            <br>
+            <input type="checkbox"  onclick="if(this.checked){myfunct()}"><h4>Trim(Remove whitespaces from both ends)</h4>
+            <br>
+            <input type="checkbox"  onclick="if(this.checked){myFuncti()}"><h4>Bold</h4>
+            <br>
+            <input type="checkbox"  onclick="if(this.checked){MyFuncti()}"><h4>Lighter</h4>
+            <br>
+            <input type="checkbox"  onclick="if(this.checked){Myfuncti()}"><h4>Italic</h4>
+            <br>
+            <input type="checkbox"  onclick="if(this.checked){myfuncti()}"><h4>Underline</h4>
+            <br>
+            <br>
+        </form>
+</div>
+    <script>
+        document
+            .querySelector("#fname")
+            .addEventListener("keyup", function countWord() {
+            let res = [];
+            let str = this.value.replace(/[\t\n\r\.\?\!]/gm, " ").split(" ");
+            str.map((s) => {
+                let trimStr = s.trim();
+                if (trimStr.length > 0) {
+                res.push(trimStr);
+                }
+            });
+            document.querySelector("#show").innerText = res.length;
+            });
+        function myfuncT() {
+          document.getElementById("fname").style.textTransform="initial";
+        }
+        function myfunct() {
+          document.getElementById("fname").value = document.getElementById("fname").value.trim();
+        }
+        function myFunction() {
+          document.getElementById("fname").value = document.getElementById("fname").value.toUpperCase();
+        }
+        function MyFunction() {
+          document.getElementById("fname").value = document.getElementById("fname").value.toLowerCase();
+        }
+        function myfunction() {
+            document.getElementById("fname").style.textTransform = "capitalize";
+        }
+        function myfunc() {
+            document.getElementById("fname").style.textAlign="center";
+        }
+        function myfuc() {
+            document.getElementById("fname").style.textAlign="left";
+        }
+        function myfun() {
+            document.getElementById("fname").style.textAlign="right";
+        }
+        function myfuncti() {
+          document.getElementById("fname").style.textDecorationLine="underline";
+        }
+        function myFuncti() {
+          document.getElementById("fname").style.fontWeight="bolder";
+        }
+        function MyFuncti() {
+          document.getElementById("fname").style.fontWeight="lighter";
+        }
+        function Myfuncti() {
+          document.getElementById("fname").style.fontStyle="italic";
+        }
+    </script>
+</body>
+</html>
